@@ -1,2 +1,2 @@
-estructuraAPP
-=============
+lista-imagenes
+==============
