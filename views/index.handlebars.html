@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	    <meta charset="utf-8">
+	    <link rel="stylesheet" type="text/css" href="estilo.css">
+	    <style>
+
+	    	*{
+				margin: 0px;
+				padding: 0px;
+			}
+			@font-face{
+			   font-family:"Sinkin";
+			   src:url(SinkinSans-200XLight.otf) format("opentype");
+			}
+			.typo{
+			   font-family:Sinkin;
+			}
+
+
+	        /* Para fondo completo */
+			html {
+			background: url(../public/img/fondo.jpg) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			}
+
+		section{
+			display: block;
+			margin: auto;
+			padding: 20px;
+			position: absolute;
+			top: 50%; 
+			left: 50%;
+ 			transform: translate(-50%, -50%);
+			max-width: 800px;
+			background-color: rgba(255, 255, 255, 0.3);
+			border-radius: 15px 15px 15px 15px;
+		}
+
+
+
+		section p{
+			color: #000;
+			font-family: arial;
+			font-size: 14px;
+			text-align: center;
+			padding: 10px;
+		}
+
+		section form{
+			border-radius: 15px;
+		}
+
+		header{
+			display: block;;
+			height: auto;
+			/*background-color: rgba(255, 255, 255, 0.3);*/
+		}
+
+		header img{
+			padding: 20px;
+			width: 15%;
+			
+		}
+		</style>
+  	</head>
+  <body >
+  <header>
+  	<IMG SRC="../public/img/logo1.png">
+  </header>
+
+	<section>
+    	<form action="" method="post">
+                <input type="text" name="username" class="username" placeholder="Nombre de usuario"><br><br>
+                <input type="password" name="password" class="password" placeholder="Contrasena"><br><br>
+                <button type="submit">iniciar sesión</button>
+		</form>
+	</section>
+
+  </body>
+</html>
