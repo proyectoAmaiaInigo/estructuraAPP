@@ -21,8 +21,16 @@ app.use(express.static(__dirname + '/public'));
 
 // **********************************************
 
-app.get('/', function (req, res) {
-    res.render('index'); //este iria al archivo index.handlebars
+// app.get('/', function (req, res) {
+// });
+
+app.post('/login',function (req, res) {
+    console.log(req.body.username);
+    console.log(req.body.password);
+
+    
+
+    res.send("ok");
 });
 
 app.get('/picasso', function (req, res) {

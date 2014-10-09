@@ -54,7 +54,7 @@ body {
 
 /********************USUARIO*****************************/
 #slick-login input[type="text"] {
-    opacity: 0.6;
+    opacity: 0.65;
     width: 100%;
     padding: 3px;
     height: 50px;
@@ -73,7 +73,7 @@ body {
 /********************Contra*****************************/
 #slick-login input[type="password"] {
   
-    opacity: 0.6;
+    opacity: 0.65;
     width: 100%;
     padding: 3px;
     height: 50px;
@@ -93,6 +93,7 @@ body {
  /*************BOTON****************************/
 
  #slick-login input[type="submit"] {
+  opacity: 0.8;
     width: 100%;
     height: 50px;
     margin-top: 10px;
