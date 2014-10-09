@@ -1,0 +1,235 @@
+* { 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box; 
+}
+
+html {
+      background: url("/img/fondo.png") no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      }
+
+header{
+      display: block;;
+      height: auto;
+      text-align: center;
+      margin-top: 50px;
+      /*background-color: rgba(255, 255, 255, 0.3);*/
+    }
+
+header img{
+      padding: 20px;
+      width: 300px;
+      
+}
+
+body {
+    font-family: sans-serif;
+    display: -webkit-linear;
+    /*background-image: -webkit-linear-gradient(bottom, #00CC99 0%, #009999 100%);
+    background-image: -moz-linear-gradient(bottom, #00CC99 0%, #009999 100%);
+    background-image: -o-linear-gradient(bottom, #00CC99 0%, #009999 100%);
+    background-image: -ms-linear-gradient(bottom, #00CC99 0%, #009999 100%);
+    background-image: linear-gradient(bottom, #00CC99 0%, #009999 100%);*/
+}
+
+#slick-login {
+
+  	-webkit-animation: login 1s ease-in-out;
+    -moz-animation: login 1s ease-in-out;
+    -ms-animation: login 1s ease-in-out;
+    -o-animation: login 1s ease-in-out;
+    animation: login 1s ease-in-out;
+    width: 220px;
+    height: 155px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -110px;
+    margin-top: -75px;
+}
+
+/********************USUARIO*****************************/
+#slick-login input[type="text"] {
+    opacity: 0.6;
+    width: 100%;
+    padding: 3px;
+    height: 50px;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #ffffff;
+ 
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 2px;
+}
+
+/********************Contra*****************************/
+#slick-login input[type="password"] {
+  
+    opacity: 0.6;
+    width: 100%;
+    padding: 3px;
+    height: 50px;
+    color: #000;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #ffffff;
+ 
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 2px;
+}
+ 
+ /*************BOTON****************************/
+
+ #slick-login input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+   /* text-shadow: 0px -1px 0px #5b6ddc;*/
+    outline: none;
+    border: 1px solid #00CC99;
+ 
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 100px;
+ 
+    background-color: #00CC99;
+    /*background-image: -webkit-linear-gradient(bottom, #00CC99 0%, #00CC99 100%);
+    background-image: -moz-linear-gradient(bottom, #00CC99 0%, #768ee4 100%);
+    background-image: -o-linear-gradient(bottom, #00CC99 0%, #768ee4 100%);
+    background-image: -ms-linear-gradient(bottom, #00CC99 0%, #768ee4 100%);
+    background-image: linear-gradient(bottom, #00CC99 0%, #768ee4 100%);*/
+ 
+    cursor: pointer;
+     
+    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
+    box-shadow: inset 0px 1px 0px #00CC99;
+ 
+}
+
+#slick-login input[type="submit"]:hover {
+    background-color: #00CC99;
+   /*background-image: -webkit-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
+    background-image: -moz-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
+    background-image: -o-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
+    background-image: -ms-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
+    background-image: linear-gradient(bottom, #5f73e9 0%, #859bef 100%);*/
+ 
+    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
+    box-shadow: inset 0px 1px 0px #00CC99;
+     
+    margin-top: 10px;
+}
+ 
+#slick-login input[type="submit"]:active {
+    background-color: #00CC99;
+    /*background-image: -webkit-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
+    background-image: -moz-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
+    background-image: -o-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
+    background-image: -ms-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
+    background-image: linear-gradient(bottom, #7588e1 0%, #7184df 100%);*/
+ 
+    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
+    box-shadow: inset 0px 1px 0px #00CC99;
+}
+
+
+/***********************************6****************************/
+
+.placeholder {
+    color: #444;
+}
+
+/***************************************************************/
+
+
+/*PARA EL MOVIMIENTO DEL LOGIN AL CARGAR*/
+@keyframes "login" {
+ 0% {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    margin-top: -50px;
+ }
+ 100% {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    margin-top: -75px;
+ }
+ 
+}
+ 
+@-moz-keyframes login {
+ 0% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+ 
+}
+ 
+@-webkit-keyframes "login" {
+ 0% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+ 
+}
+ 
+@-ms-keyframes "login" {
+ 0% {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+ 
+}
+ 
+@-o-keyframes "login" {
+ 0% {
+   filter: alpha(opacity=0);
+   opacity: 0;
+   margin-top: -50px;
+ }
+ 100% {
+   filter: alpha(opacity=100);
+   opacity: 1;
+   margin-top: -75px;
+ }
+ 
+}
+/*/////////////////////////////////////////////////*/
