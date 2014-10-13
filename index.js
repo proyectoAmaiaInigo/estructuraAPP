@@ -26,10 +26,11 @@ var validator = require('validator');
 
 var sqlze = require('sequelize');
 // var db = new sqlze('databasename', 'username', 'password',{
-var db = new sqlze('test', 'root', 'root',{
+var db = new sqlze('concerts', 'root', 'root',{
     dialect: 'mysql',
     port: 3306
 });
+var bcrypt = require("bcrypt-nodejs");
 
 
 // para autentificar la conexión con la base de datos
@@ -52,12 +53,18 @@ app.post('/login',function (req, res) {
 
     var id = req.body.usuario;
     var contra = req.body.password;
-    res.send(id + " " + contra) ;
+    hash = bcrypt.hashSync(contra);
+   // res.send(id + " " + contra) ;
     // Raw query
-   // db.query('SELECT * FROM users').success(function(rows){
-   // });
+     db.query('SELECT * FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(rows){
+        console.log('usuario ok');
+       var contraBD= db.query('SELECT contrasena FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(rows){
+            bcrypt.compareSync(contraBD, hash);
+            console.log('contrasena ok');
+       });
+    });
 
-    res.send("ok");
+    
 });
 
 
