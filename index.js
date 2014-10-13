@@ -18,20 +18,49 @@ app.use(bodyParser.json());
 // public files
 app.use(express.static(__dirname + '/public'));
 
+// database example
+// http://sequelizejs.com/articles/getting-started
 
-// **********************************************
+// https://www.npmjs.org/package/validator
+var validator = require('validator');
 
-// app.get('/', function (req, res) {
-// });
+var sqlze = require('sequelize');
+// var db = new sqlze('databasename', 'username', 'password',{
+var db = new sqlze('test', 'root', 'root',{
+    dialect: 'mysql',
+    port: 3306
+});
+
+
+// para autentificar la conexión con la base de datos
+db
+    .authenticate()
+    .complete(function(err){
+        if(!!err) {
+            console.log('Unable to connect to database: ', err);
+        } else {
+            console.log('Connection OK!');
+        }
+    });
+//
+
+app.get('/', function (req, res) {
+    //index
+ });
 
 app.post('/login',function (req, res) {
-    console.log(req.body.username);
-    console.log(req.body.password);
 
-    
+    var id = req.body.usuario;
+    var contra = req.body.password;
+    res.send(id + " " + contra) ;
+    // Raw query
+   // db.query('SELECT * FROM users').success(function(rows){
+   // });
 
     res.send("ok");
 });
+
+
 
 app.get('/picasso', function (req, res) {
     var imagenes = {imgs: [
