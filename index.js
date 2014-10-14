@@ -56,12 +56,19 @@ app.post('/login',function (req, res) {
     hash = bcrypt.hashSync(contra);
    // res.send(id + " " + contra) ;
     // Raw query
-     db.query('SELECT * FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(rows){
+     db.query('SELECT * FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(usuario){
+        console.log(usuario);
+        console.log(usuario.idusuario);
+        console.log(usuario[0].idusuario);
+
         console.log('usuario ok');
-       var contraBD= db.query('SELECT contrasena FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(rows){
-            bcrypt.compareSync(contraBD, hash);
-            console.log('contrasena ok');
-       });
+    //var contraBD =  db.query('SELECT contrasena FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(rows){
+            if (bcrypt.compareSync(usuario[0].contrasena, hash)) {;
+                console.log('contrasena ok');
+            } else {
+                console.log('contrasena ko');
+            }
+      // });
     });
 
     

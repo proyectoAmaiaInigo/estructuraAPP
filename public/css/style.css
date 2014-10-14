@@ -17,7 +17,6 @@ header{
       height: auto;
       text-align: center;
       margin-top: 50px;
-      /*background-color: rgba(255, 255, 255, 0.3);*/
     }
 
 header img{
@@ -30,11 +29,6 @@ header img{
 body {
     font-family: sans-serif;
     display: -webkit-linear;
-    /*background-image: -webkit-linear-gradient(bottom, #00CC99 0%, #009999 100%);
-    background-image: -moz-linear-gradient(bottom, #00CC99 0%, #009999 100%);
-    background-image: -o-linear-gradient(bottom, #00CC99 0%, #009999 100%);
-    background-image: -ms-linear-gradient(bottom, #00CC99 0%, #009999 100%);
-    background-image: linear-gradient(bottom, #00CC99 0%, #009999 100%);*/
 }
 
 #slick-login {
@@ -101,7 +95,6 @@ body {
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-   /* text-shadow: 0px -1px 0px #5b6ddc;*/
     outline: none;
     border: 1px solid #00CC99;
  
@@ -111,11 +104,6 @@ body {
     border-radius: 100px;
  
     background-color: #00CC99;
-    /*background-image: -webkit-linear-gradient(bottom, #00CC99 0%, #00CC99 100%);
-    background-image: -moz-linear-gradient(bottom, #00CC99 0%, #768ee4 100%);
-    background-image: -o-linear-gradient(bottom, #00CC99 0%, #768ee4 100%);
-    background-image: -ms-linear-gradient(bottom, #00CC99 0%, #768ee4 100%);
-    background-image: linear-gradient(bottom, #00CC99 0%, #768ee4 100%);*/
  
     cursor: pointer;
      
@@ -126,11 +114,6 @@ body {
 
 #slick-login input[type="submit"]:hover {
     background-color: #00CC99;
-   /*background-image: -webkit-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
-    background-image: -moz-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
-    background-image: -o-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
-    background-image: -ms-linear-gradient(bottom, #5f73e9 0%, #859bef 100%);
-    background-image: linear-gradient(bottom, #5f73e9 0%, #859bef 100%);*/
  
     -webkit-box-shadow: inset 0px 1px 0px #00CC99;
     box-shadow: inset 0px 1px 0px #00CC99;
@@ -140,11 +123,6 @@ body {
  
 #slick-login input[type="submit"]:active {
     background-color: #00CC99;
-    /*background-image: -webkit-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
-    background-image: -moz-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
-    background-image: -o-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
-    background-image: -ms-linear-gradient(bottom, #7588e1 0%, #7184df 100%);
-    background-image: linear-gradient(bottom, #7588e1 0%, #7184df 100%);*/
  
     -webkit-box-shadow: inset 0px 1px 0px #00CC99;
     box-shadow: inset 0px 1px 0px #00CC99;
@@ -244,7 +222,9 @@ body {
  position: absolute;
  width: 250px;
  border-color: red;
+
 }
+
 #registro button{
   font-size: 18px;
   height: 42px;
@@ -252,10 +232,10 @@ body {
   min-width: 200px;
   font-size: 16px;
   background-color: transparent;
-  /*border-style: none;*/
   border-color: #00CC99;
   border-width:4px;
   border-radius: 30px;
   color: #00CC99;
+  cursor: pointer;
 
 }
