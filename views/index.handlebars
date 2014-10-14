@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+	<script type="text/javascript" src="js/registro.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta charset="utf-8">
+
+    <title>Bandate</title>
+
+    <meta name="description" content="buscador de conciertos">
+    <meta name="author" content="Amaia & Iñigo">
+</head>
+ 
+<body>
+
+<header>
+    <img src="img/logo1.png">
+  </header>
+    <form id="slick-login" method="post" action="/login">
+        <input type="text" name="usuario" placeholder="Nombre de usuario">
+        <input type="password" name="password" placeholder="Contraseña">
+        <input type="submit" value="Conectarse" onsubmit="">
+    </form>
+    <form id="miForm" action="" method="get" onsubmit="return valida(this)">
+      <h4>REGISTRO</h4>
+      <p>
+        Usuario: <input type="text" id="usuario" />
+        <br />
+        Contraseña: <input type="text" id="contra" />
+        <br />
+        Repetir contraseña: <input type="text" id="contra2" />
+        <br />
+        Nombre: <input type="text" id="nombre" />
+        <br />
+        Apellidos: <input type="text" id="apellidos" />
+        <br />
+        Direccion email: <input type="text" id="mail" />
+        <br />
+        Sexo: <input type="radio" id="sexo" name="sexo" value="hombre" /> Hombre
+        <input type="radio" id="sexo" name="sexo" value="mujer" /> Mujer
+        <br />
+        <input type="submit" value="Enviar" />
+        <input type="reset" value="Borrar" />
+      </p>
+    </form>
+    <div id="registro">
+      <button onclick="verRegistro(this)">+Regístrate</button>
+    </div>
+</body>
+     
+</html>
