@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <!-- <script type="text/javascript" src="registro.js" /> -->
+    <title>Validación un formulario</title>
+  </head>
+  <body>
+    <form id="miForm" action="" method="get" onsubmit="return valida(this)">
+      <h4>REGISTRO</h4>
+      <p>
+        Usuario: <input type="text" id="usuario" />
+        <br />
+        Contraseña: <input type="text" id="contra" />
+        <br />
+        Repetir contraseña: <input type="text" id="contra2" />
+        <br />
+        Nombre: <input type="text" id="nombre" />
+        <br />
+        Apellidos: <input type="text" id="apellidos" />
+        <br />
+        Direccion email: <input type="text" id="mail" />
+        <br />
+        Sexo: <input type="radio" id="sexo" name="sexo" value="hombre" /> Hombre
+        <input type="radio" id="sexo" name="sexo" value="mujer" /> Mujer
+        <br />
+        <input type="submit" value="Enviar" />
+        <input type="reset" value="Borrar" />
+      </p>
+    </form>
+  </body>
+</html>
