@@ -47,28 +47,43 @@ db
 
 app.get('/', function (req, res) {
     //index
+    res.render('index');
  });
 
 app.post('/login',function (req, res) {
 
     var id = req.body.usuario;
     var contra = req.body.password;
-    hash = bcrypt.hashSync(contra);
-   // res.send(id + " " + contra) ;
+    //hash = bcrypt.hashSync(contra);
     // Raw query
      db.query('SELECT * FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(usuario){
-        console.log(usuario);
-        console.log(usuario.idusuario);
-        console.log(usuario[0].idusuario);
 
-        console.log('usuario ok');
-    //var contraBD =  db.query('SELECT contrasena FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(rows){
-            if (bcrypt.compareSync(usuario[0].contrasena, hash)) {;
+        console.log(usuario);
+    
+        if (usuario.length==0) {
+            // no user
+            res.send("usuario erroneo");
+        } else {
+            
+            var contraBD = (usuario[0].contrasena);
+            console.log(usuario[0].contrasena);
+            console.log(contra);
+            if(contraBD.localeCompare(contra)==0){
+                console.log("dentro");
+                
+            }else{
+                console.log("fuera");
+                
+            }
+            res.send("usuario ok");
+            
+        }
+   
+      /*      if (bcrypt.compareSync(usuario[0].contrasena, hash)) {;
                 console.log('contrasena ok');
             } else {
                 console.log('contrasena ko');
-            }
-      // });
+            }*/
     });
 
     
