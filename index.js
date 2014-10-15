@@ -88,6 +88,34 @@ app.post('/login',function (req, res) {
 
     
 });
+app.post('/registro', function (req, res) {
+    
+    var id = req.body.usuarioform;
+    var contra = req.body.contra;
+    var nombre = req.body.nombre;
+    var apellidos = req.body.apellidos;
+    var mail = req.body.mail;
+
+    // validate 
+    // TODO
+
+    var sql = 'INSERT INTO usuario (idusuario, contrasena, nombre, apellidos, mail) VALUES (\''+id+'\', \''+contra+'\', \''+nombre+'\', \''+apellidos+'\', \''+mail+'\');';
+
+    console.log(sql);
+
+    db
+        .query(sql, null, {raw:true})
+
+        .success(function(rows){
+            // no errors
+            // console.log({"msg":"insert OK", "sql":sql});
+            // res.json({"msg":"insert OK", "sql":sql});
+            alert("Registrado!!");
+            res.render('index');
+            // res.json(JSON.stringify(rows));
+    });
+
+});
 
 
 

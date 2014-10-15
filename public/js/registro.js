@@ -13,7 +13,7 @@
           if(usuario.length <2 || usuario.length>16){
             alert("El usuario tiene que tener como mínimo 3 caracteres y como máximo 15");
           }else{
-            código validación BD con usuarios
+            código validación BD con usuariosl
           }
           //validación contraseña
           if()
@@ -22,4 +22,21 @@
       }*/
 function verRegistro(f){
   alert("FUNCIONA");
+}
+// $(document).on('ready', function()){
+
+//   $("registro").click(function(evento){
+//       alert("Has pulsado el enlace...nAhora serás enviado a DesarrolloWeb.com");
+//       $("#login").invisible();
+//       $("#formRegistro").visible();
+//    });
+  
+// }
+function setVisible(){
+  document.getElementById("loginDiv").style.visibility="hidden";
+  document.getElementById("formDiv").style.visibility="visible";
+  document.getElementById("registro").style.visibility="hidden";
+}
+function setInvisible(){
+  document.getElementById("formDiv").style.visibility="hidden";
 }
