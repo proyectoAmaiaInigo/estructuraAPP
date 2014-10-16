@@ -23,15 +23,6 @@
 function verRegistro(f){
   alert("FUNCIONA");
 }
-// $(document).on('ready', function()){
-
-//   $("registro").click(function(evento){
-//       alert("Has pulsado el enlace...nAhora serás enviado a DesarrolloWeb.com");
-//       $("#login").invisible();
-//       $("#formRegistro").visible();
-//    });
-  
-// }
 function setVisible(){
   document.getElementById("loginDiv").style.visibility="hidden";
   document.getElementById("formDiv").style.visibility="visible";
