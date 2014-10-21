@@ -12,10 +12,14 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
 
-CREATE TABLE `usuario` (
-    `email`      		 varchar(5) CONSTRAINT firstkey PRIMARY KEY NOT NULL,
-    `contrasena`       varchar(40) NOT NULL,
-    'localidades'      varchar(45) NULL,
-    'grupos'			 varchar(45) NULL,
-    'foto_perfil'		 varchar(45) NULL,
+CREATE TABLE usuario (
+    email      		 varchar(5) CONSTRAINT firstkey PRIMARY KEY NOT NULL,
+    contrasena      varchar(40) NOT NULL,
+    localidades      varchar(45) NULL,
+    grupos			 varchar(45) NULL,
+    foto_perfil		 varchar(45) NULL
 );
+
+INSERT INTO usuario VALUES
+    ('amaia', 'amaia', '', '', '');
+    

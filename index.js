@@ -30,6 +30,7 @@ var db = null;
 
 if (process.env.DATABASE_URL) {
     // the application is executed on Heroku ... use the postgres database 
+    console.log(process.env.DATABASE_URL);
     db = new Sequelize(process.env.DATABASE_URL);
   } else {
     // the application is executed on the local machine ... use mysql
