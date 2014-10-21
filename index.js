@@ -24,16 +24,22 @@ app.use(express.static(__dirname + '/public'));
 // https://www.npmjs.org/package/validator
 var validator = require('validator');
 
-var sqlze = require('sequelize');
+var Sequelize = require('sequelize');
 // var db = new sqlze('databasename', 'username', 'password',{
-var db = new sqlze('concerts', 'root', 'root',{
-    dialect: 'mysql',
-    port: 3306
-});
-var bcrypt = require("bcrypt-nodejs");
+var db = null;
 
+if (process.env.DATABASE_URL) {
+    // the application is executed on Heroku ... use the postgres database 
+    db = new Sequelize(process.env.DATABASE_URL);
+  } else {
+    // the application is executed on the local machine ... use mysql
+    // var db = new sqlze('databasename', 'username', 'password',{
+    db = new Sequelize('concerts', 'root', 'root',{
+        dialect: 'mysql',
+        port: 3306
+    });
+  }
 
-// para autentificar la conexión con la base de datos
 db
     .authenticate()
     .complete(function(err){
@@ -56,7 +62,7 @@ app.post('/login',function (req, res) {
     var contra = req.body.password;
     //hash = bcrypt.hashSync(contra);
     // Raw query
-     db.query('SELECT * FROM usuario WHERE usuario.idusuario ='+"'"+id+"'").success(function(usuario){
+     db.query('SELECT * FROM usuario WHERE usuario.mail ='+"'"+id+"'").success(function(usuario){
 
         console.log(usuario);
     
@@ -77,15 +83,8 @@ app.post('/login',function (req, res) {
             }
             res.send("usuario ok");
             
-        }
-   
-      /*      if (bcrypt.compareSync(usuario[0].contrasena, hash)) {;
-                console.log('contrasena ok');
-            } else {
-                console.log('contrasena ko');
-            }*/
+         }
     });
-
     
 });
 app.post('/registro', function (req, res) {
@@ -96,7 +95,7 @@ app.post('/registro', function (req, res) {
     var apellidos = req.body.apellidos;
     var mail = req.body.mail;
 
-    var sql = 'INSERT INTO usuario (idusuario, contrasena, nombre, apellidos, mail) VALUES (\''+id+'\', \''+contra+'\', \''+nombre+'\', \''+apellidos+'\', \''+mail+'\');';
+    var sql = 'INSERT INTO usuario (mail, contrasena) VALUES (\''+id+'\', \''+contra+'\');';
 
     console.log(sql);
 
