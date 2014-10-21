@@ -63,7 +63,7 @@ app.post('/login',function (req, res) {
     var contra = req.body.password;
     //hash = bcrypt.hashSync(contra);
     // Raw query
-     db.query('SELECT * FROM usuario WHERE mail ='+"'"+id+"'").success(function(usuario){
+     db.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'").success(function(usuario){
 
         console.log(usuario);
     
@@ -96,7 +96,7 @@ app.post('/registro', function (req, res) {
     var apellidos = req.body.apellidos;
     var mail = req.body.mail;
 
-    var sql = 'INSERT INTO usuario (mail, contrasena) VALUES (\''+id+'\', \''+contra+'\');';
+    var sql = 'INSERT INTO usuario (email, contrasena) VALUES (\''+id+'\', \''+contra+'\');';
 
     console.log(sql);
 
