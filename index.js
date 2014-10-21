@@ -63,7 +63,7 @@ app.post('/login',function (req, res) {
     var contra = req.body.password;
     //hash = bcrypt.hashSync(contra);
     // Raw query
-     db.query('SELECT * FROM usuario WHERE usuario.mail ='+"'"+id+"'").success(function(usuario){
+     db.query('SELECT * FROM usuario WHERE mail ='+"'"+id+"'").success(function(usuario){
 
         console.log(usuario);
     
