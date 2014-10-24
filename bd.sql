@@ -22,4 +22,3 @@ CREATE TABLE usuario (
 
 INSERT INTO usuario VALUES
     ('amaia', 'amaia', '', '', '');
-    

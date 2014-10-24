@@ -27,7 +27,7 @@
         </form>
     </div>
     <div id="formDiv">
-        <form id="formRegistro" action="/registro" method="post"  onsubmit="valida()">
+        <form id="formRegistro" action="/registro" method="post">
           <h4>REGISTRO</h4>
           <p>
             Usuario: <input type="text" id="usuario" name="usuarioform"/>
@@ -42,7 +42,7 @@
             <br />
             Direccion email: <input type="text" id="mail" name="mail"/>
             <br />
-            <input type="submit" value="Enviar"/>
+            <input type="submit" value="Enviar"  onsubmit="valida()"/>
             <input type="reset" value="Borrar" /> 
           </p>
         </form> 
