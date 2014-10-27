@@ -21,28 +21,21 @@
   </header>
     <div id="loginDiv">
         <form id="login" method="post" action="/login">
-            <input type="text" name="usuario" placeholder="Nombre de usuario">
+            <input type="text" name="usuario" placeholder="Email">
             <input type="password" name="password" placeholder="Contraseña">
             <input type="submit" value="Conectarse" onsubmit="">
         </form>
     </div>
     <div id="formDiv">
         <form id="formRegistro" action="/registro" method="post">
-          <h4>REGISTRO</h4>
           <p>
-            Usuario: <input type="text" id="usuario" name="usuarioform"/>
+            <input type="text" id="mail" name="mail" placeholder="Introducir email"/>
             <br />
-            Contraseña: <input type="password" id="contra" name="contra"/>
+            <input type="password" id="contra" name="contra" placeholder="Nueva contraseña"/>
             <br />
-            Repetir contraseña: <input type="password" id="contra2" />
+            <input type="password" id="contra2" placeholder="Repetir contraseña"/>
             <br />
-            Nombre: <input type="text" id="nombre" name="nombre"/>
-            <br />
-            Apellidos: <input type="text" id="apellidos" name="apellidos"/>
-            <br />
-            Direccion email: <input type="text" id="mail" name="mail"/>
-            <br />
-            <input type="submit" value="Enviar"  onsubmit="valida()"/>
+            <input type="submit" value="Registrarse"  onsubmit="valida()"/>
             <input type="reset" value="Borrar" /> 
           </p>
         </form> 
