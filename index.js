@@ -103,10 +103,44 @@ app.post('/registro', function (req, res) {
         }
     });
 
-
-
-
 });
+
+
+
+// pruebaaa JASON
+app.get('/artistas', function (req, res) {  
+
+    // client.query('SELECT * FROM artistas ,function(err,artistas){
+
+    var concert = {title:'IZAL',
+                 concert: [
+                        {fecha: '01/02/2014'},
+                        {fecha: '04/02/2014'},
+                        {fecha: '06/02/2014'},
+                        {fecha: '25/03/2014'}
+                        ]};
+    res.render('prueba', concert);  
+ });
+
+app.get('/localidades', function (req, res) {  
+
+    // client.query('SELECT * FROM artistas ,function(err,localidades){
+           // localidades.rows[0].nombre
+
+    var localidad = {
+                 localidad: [
+                        {nombre: 'Barcelona'},
+                        {nombre: 'Madrid'},
+                        {nombre: 'Donostia'},
+                        {nombre: 'Bilbao'}
+                        ]};
+    res.render('prueba2', localidad);  
+ });
+
+
+
+
+
 var server = app.listen(process.env.PORT || 3000, function(){
     console.log('Listening in port %d', server.address().port);
 });

@@ -11,7 +11,7 @@
 
     <!--Logo-->
         <div id="logo">
-            <img href="/inicio" src="img/logotxiki.png" />
+            <img src="img/logotxiki.png" />
         </div>
 
         <div id="buscador">
@@ -41,19 +41,13 @@
     </nav>
     <!--final menu-->
 
-	{{#if title}}
-    <h3>{{title}}</h3>
-    {{else}}
-    <h3>No title</h3>
-    {{/if}}
+    {{#each localidad}}
 
-    <table border="1">
-    	{{#each concert}}
-    	<tr>
-    		<td>{{fecha}}</td>
-    	</tr>
-    	{{/each}}
-    </table>
+        <ul>
+            <li><h3>{{nombre}}</h3></li>
+        </ul>
+
+    {{/each}}
 
 
 </body>
