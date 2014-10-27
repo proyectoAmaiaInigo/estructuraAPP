@@ -100,7 +100,7 @@ body {
 }
 
 #formRegistro input[type="submit"] {
-  opacity: 0.8;
+  opacity: 0.7;
     width: 40%;
     height: 30px;
     margin-top: 40px;
@@ -111,38 +111,20 @@ body {
     border: 1px solid #00CC99;
     float: left;
  
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
+
     border-radius: 100px;
  
     background-color: #00CC99;
- 
     cursor: pointer;
-     
-    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
-    box-shadow: inset 0px 1px 0px #00CC99;
- 
 }
 
 #formRegistro input[type="submit"]:hover {
-    background-color: #00CC99;
- 
-    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
-    box-shadow: inset 0px 1px 0px #00CC99;
-     
-    margin-top: 10px;
-}
- 
-#formRegistro input[type="submit"]:active {
-    background-color: #00CC99;
- 
-    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
-    box-shadow: inset 0px 1px 0px #00CC99;
+    opacity: 1;
 }
 
+
 #formRegistro input[type="reset"] {
-  opacity: 0.8;
+  opacity: 0.7;
     width: 40%;
     height: 30px;
     margin-top: 40px;
@@ -153,34 +135,15 @@ body {
     border: 1px solid #00CC99;
     float: right;
  
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
+ 
     border-radius: 100px;
  
     background-color: #00CC99;
- 
     cursor: pointer;
-     
-    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
-    box-shadow: inset 0px 1px 0px #00CC99;
- 
 }
 
 #formRegistro input[type="reset"]:hover {
-    background-color: #00CC99;
- 
-    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
-    box-shadow: inset 0px 1px 0px #00CC99;
-     
-    margin-top: 10px;
-}
- 
-#formRegistro input[type="reset"]:active {
-    background-color: #00CC99;
- 
-    -webkit-box-shadow: inset 0px 1px 0px #00CC99;
-    box-shadow: inset 0px 1px 0px #00CC99;
+    opacity: 1;
 }
 
 /********************USUARIO*****************************/
