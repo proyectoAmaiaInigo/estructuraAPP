@@ -82,9 +82,10 @@ app.post('/login',function (req, res) {
 });
 app.post('/registro', function (req, res) {
     
-    var id = req.body.usuarioform;
-    var contra = req.body.contra;
     console.log("dentro");
+    var id = req.body.mail;
+    var contra = req.body.contra;
+    console.log("dentro1");
 
     var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
 
