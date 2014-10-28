@@ -61,32 +61,24 @@ app.post('/login',function (req, res) {
 
     var id = req.body.usuario;
     var contra = req.body.password;
-    //hash = bcrypt.hashSync(contra);
-    // Raw query
-     db.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'").success(function(usuario){
+
+    db.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'").success(function(usuario){
 
         console.log(usuario);
     
         if (usuario.length==0) {
-            // no user
             res.send("usuario erroneo");
         } else {
-            
             var contraBD = (usuario[0].contrasena);
             console.log(usuario[0].contrasena);
             console.log(contra);
             if(contraBD.localeCompare(contra)==0){
                 res.send("usuario y contraseña ok");
-                
             }else{
                 res.send("usuario ok y contraseña ko");
-                
             }
-            
-            
-         }
+        }
     });
-    
 });
 app.post('/registro', function (req, res) {
     
@@ -94,19 +86,19 @@ app.post('/registro', function (req, res) {
     var contra = req.body.contra;
     console.log("dentro");
 
-    var sql = 'INSERT INTO usuario (email, contrasena) VALUES (\''+id+'\', \''+contra+'\');';
+    var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
 
     console.log(sql);
 
     db
-        .query(sql, null, {raw:true})
+    .query(sql, null, {raw:true})
 
-        .success(function(rows){
-            // no errors
-            // console.log({"msg":"insert OK", "sql":sql});
-            // res.json({"msg":"insert OK", "sql":sql});delimiter $$
-            res.render('index');
-            // res.json(JSON.stringify(rows));
+    .success(function(rows){
+        // no errors
+        // console.log({"msg":"insert OK", "sql":sql});
+        // res.json({"msg":"insert OK", "sql":sql});delimiter $$
+        res.render('index');
+        // res.json(JSON.stringify(rows));
     });
 
 });
