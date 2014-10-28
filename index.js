@@ -92,6 +92,7 @@ app.post('/registro', function (req, res) {
     
     var id = req.body.usuarioform;
     var contra = req.body.contra;
+    console.log("dentro");
 
     var sql = 'INSERT INTO usuario (email, contrasena) VALUES (\''+id+'\', \''+contra+'\');';
 
