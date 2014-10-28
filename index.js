@@ -76,13 +76,13 @@ app.post('/login',function (req, res) {
             console.log(usuario[0].contrasena);
             console.log(contra);
             if(contraBD.localeCompare(contra)==0){
-                console.log("dentro");
+                res.send("usuario y contraseña ok");
                 
             }else{
-                console.log("fuera");
+                res.send("usuario ok y contraseña ko");
                 
             }
-            res.send("usuario ok");
+            
             
          }
     });

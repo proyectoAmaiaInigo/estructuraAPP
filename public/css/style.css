@@ -339,3 +339,29 @@ body {
   cursor: pointer;
 
 }
+#atras{
+  clear: both;
+  margin-top: 300px;
+  padding: 50px;
+ float: left;
+ position: absolute;
+ width: 250px;
+ border-color: red;
+
+}
+
+#atras button{
+  font-size: 18px;
+  height: 42px;
+  font-weight: bold;
+  min-width: 200px;
+  font-size: 16px;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #00CC99;
+  border-width:2px;
+  border-radius: 30px;
+  color: #00CC99;
+  cursor: pointer;
+
+}
