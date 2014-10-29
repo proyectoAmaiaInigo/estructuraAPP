@@ -24,33 +24,23 @@ app.use(express.static(__dirname + '/public'));
 // https://www.npmjs.org/package/validator
 var validator = require('validator');
 
-var Sequelize = require('sequelize');
-// var db = new sqlze('databasename', 'username', 'password',{
-var db = null;
+var pg = require('pg');
 
-if (process.env.DATABASE_URL) {
-    // the application is executed on Heroku ... use the postgres database 
-    console.log(process.env.DATABASE_URL);
-    db = new Sequelize(process.env.DATABASE_URL);
-  } else {
-    // the application is executed on the local machine ... use mysql
-    // var db = new sqlze('databasename', 'username', 'password',{
-    db = new Sequelize('concerts', 'root', 'root',{
-        dialect: 'mysql',
-        port: 3306
-    });
+var client = new pg.Client({
+    user: "giudgubrrycvwo",
+    password: "nLyDs54DsiPVzvWUO5qykvn6H1",
+    database: "d384d5q0rueh4o",
+    port: 5432,
+    host: "ec2-54-83-199-115.compute-1.amazonaws.com",
+    ssl: true
+});
+client.connect(function(err) {
+  if(err) {
+    return console.error('could not connect to postgres', err);
+  }else{
+    console.log("conection ok!");
   }
-
-db
-    .authenticate()
-    .complete(function(err){
-        if(!!err) {
-            console.log('Unable to connect to database: ', err);
-        } else {
-            console.log('Connection OK!');
-        }
-    });
-//
+});
 
 app.get('/', function (req, res) {
     //index
@@ -61,13 +51,12 @@ app.post('/login',function (req, res) {
 
     var id = req.body.usuario;
     var contra = req.body.password;
+    client.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'").success(function(usuario){
 
-    db.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'").success(function(usuario){
-
-        console.log(usuario);
+       // console.log(usuario);
     
         if (usuario.length==0) {
-            res.send("usuario erroneo");
+            res.send("nombre usuario erroneo");
         } else {
             var contraBD = (usuario[0].contrasena);
             console.log(usuario[0].contrasena);
@@ -91,7 +80,7 @@ app.post('/registro', function (req, res) {
 
     console.log(sql);
 
-    db
+    client
     .query(sql, null, {raw:true})
 
     .success(function(rows){
