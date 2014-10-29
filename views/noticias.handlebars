@@ -1,0 +1,136 @@
+<!doctype html>
+<html  lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Inicio</title>
+		<link rel="stylesheet" type="text/css" href="css.css">
+
+        <!--Esta siguiente linea es para coger de la nube un tipo de fuente estrecha-->
+        <!--<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script>
+            $(function() {
+                var pull        = $('#pull');
+                    menu        = $('nav ul');
+                    menuHeight  = menu.height();
+
+                $(pull).on('click', function(e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+
+                $(window).resize(function(){
+                    var w = $(window).width();
+                    if(w > 320 && menu.is(':hidden')) {
+                        menu.removeAttr('style');
+                    }
+                });
+            });
+        </script>
+
+
+	</head>
+	<body>
+
+    <!--MENU RESPONSIVE-->
+    <nav class="clearfix">
+
+    <!--Logo-->
+        <div id="logo">
+            <img src="img/logotxiki.png" />
+        </div>
+        <ul class="clearfix" id="botoiak">
+            <li><a href="#">Novedades</a></li>
+            <li><a href="#">Artistas</a></li>
+            <li><a href="#">Localidades</a></li>
+            <li><a href="#">Perfil</a></li>
+        </ul>
+        <a href="#" id="pull"><img src="img/logotxiki.png" /></a>
+    </nav>
+    <!--final menu-->
+
+    <!--Buscador-->
+    <!--<div id="container">
+        <form role="search" method="get" id="searchform" action="">
+            <label for="s">
+                <img src="img/busca.png" alt="cabecera" title"cabecera"/>
+            </label>
+            <input type="text" value="" placeholder="search" class="" id="s" />
+        </form>
+    </div>-->
+    <!--Final buscador-->
+
+       <!-- <div id="flayer">
+        <img src="img/flayer.jpg" alt="cabecera" title"cabecera"/>
+    </div>-->
+    <div id="slider"> 
+        <input type="radio" id="control1" name="controls" checked="checked"/>
+        <label for="control1"></label>
+        <input type="radio" id="control2" name="controls"/>
+        <label for="control2"></label>
+        <input type="radio" id="control3" name="controls"/>
+        <label for="control3"></label>
+        <input type="radio" id="control4" name="controls"/>
+        <label for="control4"></label>
+        <input type="radio" id="control5" name="controls"/>
+        <label for="control5"></label>
+        <div id="sliderinner">
+            <ul>
+                <li>
+                    <img src="img/images/argazkia1.jpg" />
+                    <div class="description">
+ 
+                        <div class="description-text">
+                            <h2>Slideshow Title 1</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/images/argazkia2.jpg" />
+                    <div class="description">
+
+                        <div class="description-text">
+                            <h2>Slideshow Title 2</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/images/argazkia3.jpg" />
+                    <div class="description">
+  
+                        <div class="description-text">
+                            <h2>Slideshow Title 3</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/images/argazkia4.jpg" />
+                    <div class="description">
+     
+                        <div class="description-text">
+                            <h2>Slideshow Title 4</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/images/argazkia5.jpg" />
+                    <div class="description">
+
+                        <div class="description-text">
+                            <h2>Slideshow Title 5</h2>
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div><!--slider-->
+
+
+	</body>
+
+</html>
