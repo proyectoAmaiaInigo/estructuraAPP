@@ -40,6 +40,14 @@ client.connect(function(err) {
   }
 });
 
+//funcion para saber si json vacio o no
+function isEmptyJSON(obj) {
+  for(var i in obj) { return false; }
+  return true;
+}
+
+////////////////////////////////
+
 app.get('/', function (req, res) {
     //index
     res.render('index');
@@ -50,8 +58,8 @@ app.post('/login',function (req, res) {
     var id = req.body.usuario;
     var contra = req.body.password;
     client.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'",function(err,usuario){
-        var respuesta = null;    
-        if (usuario.length==0) { //si la consulta no devuelve nada, significa que el usuario no existe
+        var respuesta = null;
+        if (isEmptyJSON(usuario.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
             res.send("nombre usuario erroneo");
         } else {
             respuesta = usuario.rows[0];
@@ -66,29 +74,38 @@ app.post('/login',function (req, res) {
 });
 
 
-app.get('/inicio', function (req, res) {
-    
+app.get('/inicio', function (req, res) {    
     res.render('inicio');
  });
 
 app.post('/registro', function (req, res) {
     
-    console.log("dentro");
     var id = req.body.mail;
     var contra = req.body.contra;
-    console.log("dentro1");
+    
+    client.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'",function(err,usuario){
+        var respuesta = null;
+        if (isEmptyJSON(usuario.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
+            var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
 
-    var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
+            console.log(sql);
 
-    console.log(sql);
-
-    client.query(sql, null, {raw:true},function(rows){
-        // no errors
-        // console.log({"msg":"insert OK", "sql":sql});
-        // res.json({"msg":"insert OK", "sql":sql});delimiter $$
-        res.render('index');
-        // res.json(JSON.stringify(rows));
+            client.query(sql,function(error , result){
+                
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('row inserted:');
+                    res.render('index');
+                }
+            });            
+        } else {
+            res.send("ese mail ya está dado de alta");
+        }
     });
+
+
+
 
 });
 var server = app.listen(process.env.PORT || 3000, function(){

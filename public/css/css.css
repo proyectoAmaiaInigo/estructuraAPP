@@ -78,7 +78,7 @@ nav li:last-child a {
     border-right: 0;
 }
 nav a:hover, nav a:active {
-    background-color: #8c99a4;
+    color: #8c99a4;
 }
 nav a#pull{
     display: none;
@@ -97,6 +97,7 @@ nav li#buscador2{
           display: none;
         }
        nav{
+            margin-top: 50px;
             opacity: 0.9;
             text-align: center;
             border-bottom: 0;
@@ -113,7 +114,8 @@ nav li#buscador2{
             display: block;
             background-color: #283744;
             width: 100%;
-            position: relative;
+            position: absolute;
+            top: -50px;
         }
 
         nav a#pull img{
@@ -123,7 +125,7 @@ nav li#buscador2{
 
         nav a#pull:after {
             content: "";
-            background: url('img/nav-icon.png') no-repeat;
+            background: url('../img/nav-icon.png') no-repeat;
             width: 30px;
             height: 30px;
             display: block;
@@ -263,7 +265,7 @@ nav li#buscador2{
 }
 
 #search input[type="text"] {
-    background: url(img/busca2.png) no-repeat 10px 6px #fcfcfc;
+    background: url(../img/busca2.png) no-repeat 10px 6px #fcfcfc;
     border: 1px solid #d1d1d1;
     font: bold 12px Arial,Helvetica,Sans-serif;
     color: #bebebe;
