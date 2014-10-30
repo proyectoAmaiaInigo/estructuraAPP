@@ -95,7 +95,6 @@ app.post('/registro', function (req, res) {
                 if (error) {
                     console.log(error);
                 } else {
-                    console.log('row inserted:');
                     res.render('index');
                 }
             });            
