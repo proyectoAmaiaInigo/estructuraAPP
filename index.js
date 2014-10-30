@@ -18,12 +18,9 @@ app.use(bodyParser.json());
 // public files
 app.use(express.static(__dirname + '/public'));
 
-// database example
-// http://sequelizejs.com/articles/getting-started
-
-// https://www.npmjs.org/package/validator
 var validator = require('validator');
 
+//conexión BD
 var pg = require('pg');
 
 var client = new pg.Client({
@@ -34,6 +31,7 @@ var client = new pg.Client({
     host: "ec2-54-83-199-115.compute-1.amazonaws.com",
     ssl: true
 });
+
 client.connect(function(err) {
   if(err) {
     return console.error('could not connect to postgres', err);
@@ -47,30 +45,32 @@ app.get('/', function (req, res) {
     res.render('index');
  });
 
+//Comprueba si el usuario introducido existe en la BD y si la contraseña introducida es la correcta
 app.post('/login',function (req, res) {
-
     var id = req.body.usuario;
     var contra = req.body.password;
-    client.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'").success(function(usuario){
-
-       // console.log(usuario);
-    
-        if (usuario.length==0) {
+    client.query('SELECT * FROM usuario WHERE email ='+"'"+id+"'",function(err,usuario){
+        var respuesta = null;    
+        if (usuario.length==0) { //si la consulta no devuelve nada, significa que el usuario no existe
             res.send("nombre usuario erroneo");
         } else {
-            var contraBD = (usuario[0].contrasena);
-            console.log(usuario[0].contrasena);
-            console.log(contra);
+            respuesta = usuario.rows[0];
+            var contraBD = (respuesta.contrasena);
             if(contraBD.localeCompare(contra)==0){
-                //res.send("usuario y contraseña ok");
-                res.render('noticias');
+                res.redirect('/inicio'); //cuando comprueba que tanto el usuario como la contraseña está bien redirige a la página principal
             }else{
-                res.send("usuario ok y contraseña ko");
-                
+                res.send("usuario ok y contraseña ko");                
             }
         }
     });
 });
+
+
+app.get('/inicio', function (req, res) {
+    
+    res.render('inicio');
+ });
+
 app.post('/registro', function (req, res) {
     
     console.log("dentro");
@@ -82,10 +82,7 @@ app.post('/registro', function (req, res) {
 
     console.log(sql);
 
-    client
-    .query(sql, null, {raw:true})
-
-    .success(function(rows){
+    client.query(sql, null, {raw:true},function(rows){
         // no errors
         // console.log({"msg":"insert OK", "sql":sql});
         // res.json({"msg":"insert OK", "sql":sql});delimiter $$
