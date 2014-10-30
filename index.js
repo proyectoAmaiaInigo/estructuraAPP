@@ -62,9 +62,11 @@ app.post('/login',function (req, res) {
             console.log(usuario[0].contrasena);
             console.log(contra);
             if(contraBD.localeCompare(contra)==0){
-                res.send("usuario y contraseña ok");
+                //res.send("usuario y contraseña ok");
+                res.render('noticias');
             }else{
                 res.send("usuario ok y contraseña ko");
+                
             }
         }
     });
@@ -92,21 +94,6 @@ app.post('/registro', function (req, res) {
     });
 
 });
-
-
-
-app.get('/picasso', function (req, res) {
-    var imagenes = {imgs: [
-                        {url: 'PicassoGuernica.jpg'},
-                        {url: 'Picasso_Drawing_by_pirouline.jpg'},
-                        {url: 'PicassoGuernica.jpg'},
-                        {url: 'Picasso_Drawing_by_pirouline.jpg'}
-                        ]};
-    res.render('hello', imagenes);//este iria al archivo hello.handlebars
-});
-
-
-
 var server = app.listen(process.env.PORT || 3000, function(){
     console.log('Listening in port %d', server.address().port);
 });
