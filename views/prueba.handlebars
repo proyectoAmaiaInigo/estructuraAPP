@@ -41,20 +41,9 @@
     </nav>
     <!--final menu-->
 
-	{{#if title}}
-    <h3>{{title}}</h3>
-    {{else}}
-    <h3>No title</h3>
-    {{/if}}
-
-    <table border="1">
-    	{{#each concert}}
-    	<tr>
-    		<td>{{fecha}}</td>
-    	</tr>
+    	{{#each artistas}}
+    	<h2>{{nombre}}</h2>
     	{{/each}}
-    </table>
-
 
 </body>
 </html>

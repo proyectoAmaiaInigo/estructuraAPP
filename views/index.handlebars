@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="js/registro.js"></script>
     <script type="text/javascript" src="js/valida.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <!--<script type="text/javascript" src="jquery/jquery.js"></script>-->
+    <script type="text/javascript" src="jquery/jquery.js"></script>
     <meta charset="utf-8">
 
     <title>Bandate</title>
@@ -23,11 +23,11 @@
         <form id="login" method="post" action="/login">
             <input type="text" name="usuario" placeholder="Email">
             <input type="password" name="password" placeholder="Contraseña">
-            <input type="submit" value="Conectarse" onsubmit="">
+            <input type="submit" value="Conectarse" >
         </form>
     </div>
     <div id="formDiv">
-        <form id="formRegistro" action="/registro" method="post">
+        <form id="formRegistro" onsubmit="return valida()" action="/registro" method="post">
           <p>
             <input type="text" id="mail" name="mail" placeholder="Introducir email"/>
             <br />
@@ -35,7 +35,7 @@
             <br />
             <input type="password" id="contra2" placeholder="Repetir contraseña"/>
             <br />
-            <input type="submit" value="Registrarse"/>
+            <input type="submit" value="Registrarse" />
             <input type="reset" value="Borrar" /> 
           </p>
         </form> 
@@ -47,5 +47,5 @@
       <button onclick="setVisible()">+Regístrate</button>
     </div>
 </body>
-     <!--   onsubmit="valida()"-->
+     
 </html>

@@ -108,18 +108,37 @@ app.post('/registro', function (req, res) {
 
 
 // pruebaaa JASON
-app.get('/artistas', function (req, res) {  
+app.get('/artistas', function (req, res) {
+    client.query('SELECT count(*) FROM grupo',function(err,contador){
+        var filas = contador.rows[0].count;
+        console.log(filas);
+        client.query('SELECT nombre FROM grupo',function(err,grupo){
+            console.log("dentro select 2");
+            if (isEmptyJSON(grupo.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
+                res.send("No existen artistas");
+            } else {
+                console.log("dentro if");
+                var artistas=[];
+                for(var i=0;i<filas;i++){
+                    console.log(grupo.rows[i].nombre);
+                    console.log("dentro for");
+                    artistas.push(grupo.rows[i].nombre);
+                }            
+            }
+        });
+
+    });
 
     // client.query('SELECT * FROM artistas ,function(err,artistas){
 
-    var concert = {title:'IZAL',
-                 concert: [
-                        {fecha: '01/02/2014'},
-                        {fecha: '04/02/2014'},
-                        {fecha: '06/02/2014'},
-                        {fecha: '25/03/2014'}
-                        ]};
-    res.render('prueba', concert);  
+    // var concert = {title:'IZAL',
+    //              concert: [
+    //                     {fecha: '01/02/2014'},
+    //                     {fecha: '04/02/2014'},
+    //                     {fecha: '06/02/2014'},
+    //                     {fecha: '25/03/2014'}
+    //                     ]};
+    res.render('prueba', artistas);  
  });
 
 app.get('/localidades', function (req, res) {  
