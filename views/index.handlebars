@@ -21,7 +21,7 @@
   </header>
     <div id="loginDiv">
         <form id="login" method="post" action="/login">
-            <input type="text" name="usuario" placeholder="Email">
+            <input type="email" name="usuario" placeholder="Email">
             <input type="password" name="password" placeholder="Contraseña">
             <input type="submit" value="Conectarse" >
         </form>
@@ -29,7 +29,7 @@
     <div id="formDiv">
         <form id="formRegistro" onsubmit="return valida()" action="/registro" method="post">
           <p>
-            <input type="email" id="mail" name="mail" required="required" placeholder="Introducir email"/>
+            <input type="email" id="mail" name="mail" placeholder="Introducir email"/>
             <br />
             <input type="password" id="contra" name="contra" required="required" placeholder="Nueva contraseña"/>
             <br />

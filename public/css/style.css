@@ -64,7 +64,7 @@ body {
     margin-top: -75px;
 }
 
-#formRegistro input[type="text"] {
+#formRegistro input[type="email"] {
     opacity: 0.65;
     width: 100%;
     padding: 3px;
@@ -80,6 +80,7 @@ body {
     background-clip: padding-box;
     border-radius: 2px;
 }
+
 
 #formRegistro input[type="password"] {
     opacity: 0.65;
@@ -147,7 +148,7 @@ body {
 }
 
 /********************USUARIO*****************************/
-#login input[type="text"] {
+#login input[type="email"] {
     opacity: 0.65;
     width: 100%;
     padding: 3px;
