@@ -69,3 +69,8 @@ var client = new pg.Client({
     ssl: true
 }); 
 client.connect();
+
+function isEmptyJSON(obj) {
+  for(var i in obj) { return false; }
+  return true;
+}
