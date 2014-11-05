@@ -41,9 +41,15 @@
     </nav>
     <!--final menu-->
 
-    	{{#each artista}}
+    {{#if artista}}	
+        {{#each artista}}
     	<h2>{{nombre}}</h2>
     	{{/each}}
-
+    {{/if}}
+    {{#if localidades}} 
+        {{#each localidades}}
+        <h2>{{localizacion}}</h2>
+        {{/each}}
+    {{/if}}
 </body>
 </html>

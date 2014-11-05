@@ -88,7 +88,7 @@ app.post('/registro', function (req, res) {
         if (isEmptyJSON(usuario.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
             var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
 
-            console.log(sql);
+            console.log(sql);l
 
             client.query(sql,function(error , result){
                 
@@ -119,27 +119,7 @@ app.get('/artistas', function (req, res) {
         } else {
             console.log(grupo.rows);
             artista={
-                    artista: [ { nombre: 'Izal' },
-                                  { nombre: 'Crystal Fighters' },
-                                  { nombre: 'Lana del Rey' },
-                                  { nombre: 'Vetusta Morla' },
-                                  { nombre: 'Lori Meyers' },
-                                  { nombre: 'Supersubmarina' },
-                                  { nombre: 'Shakira' },
-                                  { nombre: 'Beyonce' },
-                                  { nombre: 'Amaral' },
-                                  { nombre: 'Alt-J' },
-                                  { nombre: 'Imagine Dragons' },
-                                  { nombre: 'Arcade Fire' },
-                                  { nombre: 'Two Door Cinema Club' },
-                                  { nombre: 'MGMT' },
-                                  { nombre: 'Biffy Clyro' },
-                                  { nombre: 'Dorian' },
-                                  { nombre: 'Foster the people' },
-                                  { nombre: 'Phoenix' },
-                                  { nombre: 'The Lumineers' },
-                                  { nombre: 'Vance Joy' }
-            ]
+                    artista: grupo.rows
             };
 
             res.render('prueba', artista);         
@@ -150,17 +130,20 @@ app.get('/artistas', function (req, res) {
 
 app.get('/localidades', function (req, res) {  
 
-    // client.query('SELECT * FROM artistas ,function(err,localidades){
-           // localidades.rows[0].nombre
+    var localidades = {};
 
-    var localidad = {
-                 localidad: [
-                        {nombre: 'Barcelona'},
-                        {nombre: 'Madrid'},
-                        {nombre: 'Donostia'},
-                        {nombre: 'Bilbao'}
-                        ]};
-    res.render('prueba2', localidad);  
+    client.query('SELECT localizacion FROM conciertos',function(err,localidad){
+        
+        if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
+            res.send("No existen localidades");
+        } else {
+            localidades={
+                    localidades: localidad.rows
+            };
+            console.log(localidades);
+            res.render('prueba', localidades);         
+        }
+    });
  });
 
 
