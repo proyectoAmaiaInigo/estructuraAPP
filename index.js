@@ -88,7 +88,7 @@ app.post('/registro', function (req, res) {
         if (isEmptyJSON(usuario.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
             var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
 
-            console.log(sql);l
+            console.log(sql);
 
             client.query(sql,function(error , result){
                 
