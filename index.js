@@ -65,9 +65,13 @@ app.post('/login',function (req, res) {
             respuesta = usuario.rows[0];
             var contraBD = (respuesta.contrasena);
             if(contraBD.localeCompare(contra)==0){
-                res.redirect('/inicio'); //cuando comprueba que tanto el usuario como la contraseña está bien redirige a la página principal
+                if(id=="admin@admin.com"){ //cuando comprueba que tanto el usuario como la contraseña está bien redirige a la página principal
+                    res.redirect('/admin'); // si el usuario introducido es el administrador irá a la parte /admin
+                }else{
+                    res.redirect('/inicio'); //sino irá al inicio
+                }
             }else{
-                res.send("usuario ok y contraseña ko");                
+                res.send("usuario ok y contraseña mal");                
             }
         }
     });
@@ -77,6 +81,7 @@ app.post('/login',function (req, res) {
 app.get('/inicio', function (req, res) {    
     res.render('inicio');
  });
+
 
 app.post('/registro', function (req, res) {
     
@@ -102,12 +107,9 @@ app.post('/registro', function (req, res) {
             res.send("ese mail ya está dado de alta");
         }
     });
-
 });
 
 
-
-// pruebaaa JASON
 app.get('/artistas', function (req, res) {
 
     var artista = {};
@@ -122,7 +124,7 @@ app.get('/artistas', function (req, res) {
                     artista: grupo.rows
             };
 
-            res.render('prueba', artista);         
+            res.render('listas', artista);         
         }
     });
 
@@ -140,9 +142,38 @@ app.get('/localidades', function (req, res) {
             localidades={
                     localidades: localidad.rows
             };
-            console.log(localidades);
-            res.render('prueba', localidades);         
+            res.render('listas', localidades);         
         }
+    });
+ });
+
+app.get('/admin', function (req, res) {  
+
+    var localidades = {};
+
+    client.query('SELECT localizacion FROM conciertos',function(err,localidad){
+        
+        if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
+            res.send("No existen localidades");
+        } else {
+            localidades={
+                    localidades: localidad.rows
+            };
+            res.render('admin', localidades);         
+        }
+    });
+ });
+app.post('/borrar', function (req, res) {  
+
+    var loc = req.body.localidad;
+    console.log(loc);
+    var localidades = {};
+
+    client.query('delete FROM conciertos where localizacion ='+"'"+loc+"'",function(err,localidad){
+            console.log("borrado!");
+            console.log(err); 
+            res.send("borrado");
+            //res.render('admin', localidades);
     });
  });
 

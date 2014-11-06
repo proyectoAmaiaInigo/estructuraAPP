@@ -18,6 +18,14 @@ CREATE TABLE conciertos (
     localizacion    varchar(100) NOT NULL
 );
 
+CREATE TABLE noticias (
+    idnoticia         integer PRIMARY KEY NOT NULL,
+    titulo      varchar(300) NOT NULL,
+    subtitulo      varchar(500) NOT NULL,
+    contenido       varchar(2000) NOT NULL,
+    fecha    varchar(200) NOT NULL
+);
+
     CREATE TABLE grupo (
     idgrupo          integer PRIMARY KEY NOT NULL,
     nombre      varchar(100) NOT NULL,
