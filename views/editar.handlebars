@@ -41,11 +41,13 @@
     </nav>
     <!--final menu-->
     <form action="/modificar" method="post" id="modificar">
-        {{#if conciertos}} 
             {{#each conciertos}}
-                <input type="radio" name="localidad" value="{{conciertos}}">{{localizacion}}<br />
+                <input type="text" name="fecha" value="{{conciertos}}">{{fecha}}<br />
+                <input type="text" name="hora" value="{{conciertos}}">{{hora}}<br />
+                <input type="text" name="precio" value="{{conciertos}}">{{precio}}<br />
+                <input type="text" name="descripcion" value="{{conciertos}}">{{descripcion}}<br />
+                <input type="text" name="localizacion" value="{{conciertos}}">{{localizacion}}<br />
             {{/each}}
-        {{/if}}
         <input type="submit" value="modificar">
     </form>
 </body>

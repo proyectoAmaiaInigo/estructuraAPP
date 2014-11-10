@@ -208,6 +208,41 @@ app.post('/borrar', function (req, res) {
     });
  });
 
+app.get('/gomodificar', function (req, res) {  
+    var conciertos = {};
+
+    client.query('SELECT * FROM conciertos',function(err,localidad){
+        
+        if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
+            res.send("No existen localidades");
+        } else {
+            conciertos={
+                    conciertos: localidad.rows
+            };
+            res.render('modificar', conciertos);         
+        }
+    });
+ });
+
+app.post('/modificar', function (req, res) {  
+    console.log("dentro");
+    var loc = req.body.localidad;
+    console.log(loc);
+    var conciertos = {};
+
+    client.query('select * FROM conciertos where localizacion ='+"'"+loc+"'",function(err,localidad){
+            if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el concierto no existe
+            res.send("No existen conciertos");
+        } else {
+            conciertos={
+                    conciertos: localidad.rows
+            };
+            console.log(conciertos);
+            res.render('editar', conciertos);         
+        }
+    });
+ });
+
 
 
 
