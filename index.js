@@ -244,9 +244,12 @@ app.post('/modificar', function (req, res) {
  });
 
 
+//Servidor Cloud9/OpenShift/local
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+app.listen(port, ip);
+console.log('The magic happens on port ' + port);
 
 
-
-var server = app.listen(process.env.PORT || 3000, function(){
+/*var server = app.listen(process.env.PORT || 3000, function(){
     console.log('Listening in port %d', server.address().port);
-});
+});*/
