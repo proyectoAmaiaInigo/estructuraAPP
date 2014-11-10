@@ -10,7 +10,7 @@ INSERT INTO usuario VALUES
     ('amaia', 'amaia', '', '', '');
 
 CREATE TABLE conciertos (
-    idconcierto         integer PRIMARY KEY NOT NULL,
+    idconcierto         serial PRIMARY KEY NOT NULL ,
     fecha      varchar(40) NOT NULL,
     hora      varchar(45) NOT NULL,
     precio       varchar(45) NOT NULL,

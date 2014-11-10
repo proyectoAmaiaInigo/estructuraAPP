@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <!--MENU RESPONSIVE-->
+	<!--MENU RESPONSIVE-->
     <nav class="clearfix">
 
     <!--Logo-->
@@ -40,26 +40,13 @@
         <!--Final buscador-->
     </nav>
     <!--final menu-->
-    <div id="formDiv">
-        <form id="formAnadir" action="/anadir" method="post">
-          <p>
-            <input type="text" id="fecha" name="fecha" required="required" placeholder="Introduce la fecha"/>
-            <br />
-            <input type="text" id="hora" name="hora" required="required" placeholder="Introduce la hora"/>
-            <br />
-            <input type="text" id="precio" name="precio" required="required" placeholder="Introduce el precio"/>
-            <br />
-            <input type="text" id="descripcion" name="descripcion" required="required" placeholder="Introduce la descripcion"/>
-            <br />
-            <input type="text" id="localizacion" name="localizacion" required="required" placeholder="Introduce la localizacion"/>
-            <br />
-            <input type="submit" value="Añadir" />
-            <input type="reset" value="Borrar" /> 
-          </p>
-        </form> 
-    </div>  
-
-
-    
+    <form action="/borrar" method="post" id="borrar">
+        {{#if localidades}} 
+            {{#each localidades}}
+                <input type="radio" name="localidad" value="{{localizacion}}">{{localizacion}}<br />
+            {{/each}}
+        {{/if}}
+        <input type="submit" value="borrar">
+    </form>
 </body>
 </html>

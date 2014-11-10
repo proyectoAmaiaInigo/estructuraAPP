@@ -53,6 +53,10 @@ app.get('/', function (req, res) {
     res.render('index');
  });
 
+app.get('/inicio', function (req, res) {    
+    res.render('inicio');
+ });
+
 //Comprueba si el usuario introducido existe en la BD y si la contraseña introducida es la correcta
 app.post('/login',function (req, res) {
     var id = req.body.usuario;
@@ -76,12 +80,6 @@ app.post('/login',function (req, res) {
         }
     });
 });
-
-
-app.get('/inicio', function (req, res) {    
-    res.render('inicio');
- });
-
 
 app.post('/registro', function (req, res) {
     
@@ -110,13 +108,13 @@ app.post('/registro', function (req, res) {
 });
 
 
-app.get('/artistas', function (req, res) {
+app.get('/artistas', function (req, res) { //lista los artistas que hay dentro de la BD
 
     var artista = {};
 
     client.query('SELECT nombre FROM grupo',function(err,grupo){
         
-        if (isEmptyJSON(grupo.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
+        if (isEmptyJSON(grupo.rows)) { //si la consulta no devuelve nada, significa que no hay artistas en la BD
             res.send("No existen artistas");
         } else {
             console.log(grupo.rows);
@@ -147,8 +145,41 @@ app.get('/localidades', function (req, res) {
     });
  });
 
-app.get('/admin', function (req, res) {  
 
+/***************************************administracion***************************************/
+app.get('/admin', function (req, res) {  
+    res.render('admin');
+ });
+
+app.get('/goanadir', function (req, res) {
+            res.render('anadir');
+ });
+
+app.post('/anadir', function (req, res) {  
+
+    
+    var fecha = req.body.fecha;
+    var hora = req.body.hora;
+    var precio = req.body.precio;
+    var descripcion = req.body.descripcion;
+    var loc = req.body.localizacion;
+
+    var sql = 'INSERT INTO conciertos VALUES (DEFAULT, \''+fecha+'\', \''+hora+'\', \''+precio+'\', \''+descripcion+'\', \''+loc+'\');';
+
+        console.log(sql);
+
+        client.query(sql,function(error , result){
+            
+            if (error) {
+                console.log(error);
+            } else {
+                res.render('anadir');
+            }
+    }); 
+    
+ });
+
+app.get('/goborrar', function (req, res) {  
     var localidades = {};
 
     client.query('SELECT localizacion FROM conciertos',function(err,localidad){
@@ -159,10 +190,11 @@ app.get('/admin', function (req, res) {
             localidades={
                     localidades: localidad.rows
             };
-            res.render('admin', localidades);         
+            res.render('borrar', localidades);         
         }
     });
  });
+
 app.post('/borrar', function (req, res) {  
 
     var loc = req.body.localidad;
@@ -171,9 +203,8 @@ app.post('/borrar', function (req, res) {
 
     client.query('delete FROM conciertos where localizacion ='+"'"+loc+"'",function(err,localidad){
             console.log("borrado!");
-            console.log(err); 
-            res.send("borrado");
-            //res.render('admin', localidades);
+            console.log(err);
+            res.render('borrar', localidades);
     });
  });
 

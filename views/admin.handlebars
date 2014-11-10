@@ -3,6 +3,7 @@
 <head>
     <title>Administrador</title>
     <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script type="text/javascript" src="js/registro.js"></script>
 </head>
 <body>
 
@@ -21,9 +22,9 @@
         </div>
 
         <ul class="clearfix" id="botoiak">
-            <li><a href="/inicio">Añadir</a></li>
-            <li><a href="artistas">Modificar</a></li>
-            <li><a href="localidades">Borrar</a></li>
+            <li><a href="goanadir">Añadir</a></li>
+            <li><a href="gomodificar">Modificar</a></li>
+            <li><a href="goborrar">Borrar</a></li>
             <li  id="buscador2">
                 <div>
                  <form method="get" action="/search" id="search">
@@ -41,12 +42,7 @@
     <!--final menu-->
 
     
-    <form action="/anadir" method="post">
-        {{#if artista}} 
-            {{#each artista}}
-                <h2>{{nombre}}</h2>
-            {{/each}}
-        {{/if}}
+    <form action="/anadir" method="post" id="anadir">
         {{#if localidades}} 
             {{#each localidades}}
                 <input type="radio" name="localidad" value="{{localizacion}}">{{localizacion}}<br />
@@ -54,12 +50,7 @@
         {{/if}}
         <input type="submit" value="anadir">
     </form>
-    <form action="/modificar" method="post">
-        {{#if artista}} 
-            {{#each artista}}
-                <h2>{{nombre}}</h2>
-            {{/each}}
-        {{/if}}
+    <form action="/modificar" method="post" id="modificar">
         {{#if localidades}} 
             {{#each localidades}}
                 <input type="radio" name="localidad" value="{{localizacion}}">{{localizacion}}<br />
@@ -67,12 +58,7 @@
         {{/if}}
         <input type="submit" value="modificar">
     </form>
-    <form action="/borrar" method="post">
-        {{#if artista}} 
-            {{#each artista}}
-                <h2>{{nombre}}</h2>
-            {{/each}}
-        {{/if}}
+    <form action="/borrar" method="post" id="borrar">
         {{#if localidades}} 
             {{#each localidades}}
                 <input type="radio" name="localidad" value="{{localizacion}}">{{localizacion}}<br />
