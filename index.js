@@ -7,7 +7,7 @@ var exphbs  = require('express-handlebars');
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-// body-parser for POST
+// body-parser for POST para pasar datos desde handlebars
 // https://github.com/expressjs/body-parser
 var bodyParser = require('body-parser');
 // parse application/x-www-form-urlencoded
@@ -48,7 +48,7 @@ function isEmptyJSON(obj) {
 
 ////////////////////////////////
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res) { //si no ponemos res.render, también va a index.handlebars
     //index
     res.render('index');
  });
@@ -81,7 +81,7 @@ app.post('/login',function (req, res) {
     });
 });
 
-app.post('/registro', function (req, res) {
+app.post('/registro', function (req, res) { //añade un usuario a la BD
     
     var id = req.body.mail;
     var contra = req.body.contra;
@@ -94,7 +94,7 @@ app.post('/registro', function (req, res) {
             console.log(sql);
 
             client.query(sql,function(error , result){
-                
+                //si la insert no da ningún error, la página redirecciona a index para introducir los datos.
                 if (error) {
                     console.log(error);
                 } else {
@@ -128,20 +128,15 @@ app.get('/artistas', function (req, res) { //lista los artistas que hay dentro d
 
  });
 
-app.get('/localidades', function (req, res) {  
+app.get('/localidades', function (req, res) {   //lista las localidades que hay en la BD
 
     var localidades = {};
 
     client.query('SELECT localizacion FROM conciertos',function(err,localidad){
-        
-        if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
-            res.send("No existen localidades");
-        } else {
-            localidades={
-                    localidades: localidad.rows
-            };
-            res.render('listas', localidades);         
-        }
+        localidades={
+                localidades: localidad.rows
+        };
+        res.render('listas', localidades);
     });
  });
 
@@ -155,7 +150,7 @@ app.get('/goanadir', function (req, res) {
             res.render('anadir');
  });
 
-app.post('/anadir', function (req, res) {  
+app.post('/anadir', function (req, res) {  //añadimos conciertos a la BD, la id de los conciertos se pasa automaticamente
 
     
     var fecha = req.body.fecha;
@@ -183,15 +178,10 @@ app.get('/goborrar', function (req, res) {
     var localidades = {};
 
     client.query('SELECT localizacion FROM conciertos',function(err,localidad){
-        
-        if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
-            res.send("No existen localidades");
-        } else {
-            localidades={
-                    localidades: localidad.rows
-            };
-            res.render('borrar', localidades);         
-        }
+        localidades={
+                localidades: localidad.rows
+        };
+        res.render('borrar', localidades);
     });
  });
 
@@ -207,20 +197,15 @@ app.post('/borrar', function (req, res) {
             res.render('borrar', localidades);
     });
  });
-
+/*
 app.get('/gomodificar', function (req, res) {  
     var conciertos = {};
 
     client.query('SELECT * FROM conciertos',function(err,localidad){
-        
-        if (isEmptyJSON(localidad.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
-            res.send("No existen localidades");
-        } else {
             conciertos={
                     conciertos: localidad.rows
             };
-            res.render('modificar', conciertos);         
-        }
+            res.render('modificar', conciertos);
     });
  });
 
@@ -242,24 +227,19 @@ app.post('/modificar', function (req, res) {
         }
     });
  });
-
+*/
 
 app.get('/golistar', function (req, res) {  
    
     var artista = {};
 
     client.query('SELECT nombre FROM grupo',function(err,grupo){
-        
-        if (isEmptyJSON(grupo.rows)) { //si la consulta no devuelve nada, significa que no hay artistas en la BD
-            res.send("No existen artistas");
-        } else {
-            console.log(grupo.rows);
-            artista={
-                    artista: grupo.rows
-            };
+        console.log(grupo.rows);
+        artista={
+                artista: grupo.rows
+        };
 
-            res.render('listar', artista);         
-        }
+        res.render('listar', artista);
     });         
  });
 
