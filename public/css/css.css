@@ -37,7 +37,7 @@ body {
 .textolista h2{
     font-size: 16.5pt;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #fff;
+    color: #6C6C6C;
 }
 
 .lista{
@@ -49,7 +49,7 @@ body {
 .lista h2{
     font-size: 15pt;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #6C6C6C;
+    color: #fff;
 }
 
 #logo{

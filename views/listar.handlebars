@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script type="text/javascript" src="js/registro.js"></script>
 </head>
-<body background="/img/images/conciertos.png" no-repeat center center fixed">
+<body background="/img/images/conciertos.png" no-repeat center center fixed>
 
 	<!--MENU RESPONSIVE-->
     <nav class="clearfix">
@@ -43,16 +43,12 @@
     <!--final menu-->
     
     <div class="textolista">
-        {{#if artista}} 
+
             {{#each artista}}
             <h2>{{nombre}}</h2>
             {{/each}}
-        {{/if}}
-        {{#if localidades}} 
-            {{#each localidades}}
-            <h2>{{localizacion}}</h2>
-            {{/each}}
-        {{/if}}
+
+
     </div>
     
 </body>
