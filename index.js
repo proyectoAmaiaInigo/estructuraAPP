@@ -18,8 +18,6 @@ app.use(bodyParser.json());
 // public files
 app.use(express.static(__dirname + '/public'));
 
-var validator = require('validator');
-
 //conexión BD
 var pg = require('pg');
 
@@ -68,7 +66,7 @@ app.post('/login',function (req, res) {
         } else {
             respuesta = usuario.rows[0];
             var contraBD = (respuesta.contrasena);
-            if(contraBD.localeCompare(contra)==0){
+            if(contraBD==contra){ 
                 if(id=="admin@admin.com"){ //cuando comprueba que tanto el usuario como la contraseña está bien redirige a la página principal
                     res.redirect('/admin'); // si el usuario introducido es el administrador irá a la parte /admin
                 }else{
@@ -90,9 +88,7 @@ app.post('/registro', function (req, res) { //añade un usuario a la BD
         var respuesta = null;
         if (isEmptyJSON(usuario.rows)) { //si la consulta no devuelve nada, significa que el usuario no existe
             var sql = 'INSERT INTO usuario VALUES (\''+id+'\', \''+contra+'\');';
-
             console.log(sql);
-
             client.query(sql,function(error , result){
                 //si la insert no da ningún error, la página redirecciona a index para introducir los datos.
                 if (error) {
@@ -109,32 +105,24 @@ app.post('/registro', function (req, res) { //añade un usuario a la BD
 
 
 app.get('/artistas', function (req, res) { //lista los artistas que hay dentro de la BD
-
-    var artista = {};
-
+    var artista = {}; //creamos el json
     client.query('SELECT nombre FROM grupo',function(err,grupo){
-        
-        if (isEmptyJSON(grupo.rows)) { //si la consulta no devuelve nada, significa que no hay artistas en la BD
-            res.send("No existen artistas");
-        } else {
             console.log(grupo.rows);
             artista={
-                    artista: grupo.rows
+                    artista: grupo.rows //se rellena con los datos que devuelve la query
             };
-
-            res.render('listas', artista);         
-        }
+            res.render('listas', artista);
     });
 
  });
 
 app.get('/localidades', function (req, res) {   //lista las localidades que hay en la BD
 
-    var localidades = {};
+    var localidades = {}; //creamos el json
 
     client.query('SELECT localizacion FROM conciertos',function(err,localidad){
         localidades={
-                localidades: localidad.rows
+                localidades: localidad.rows //se rellena con los datos que devuelve la query
         };
         res.render('listas', localidades);
     });
@@ -152,12 +140,15 @@ app.get('/goanadir', function (req, res) {
 
 app.post('/anadir', function (req, res) {  //añadimos conciertos a la BD, la id de los conciertos se pasa automaticamente
 
+    //recogemos los datos introducidos
     
     var fecha = req.body.fecha;
     var hora = req.body.hora;
     var precio = req.body.precio;
     var descripcion = req.body.descripcion;
     var loc = req.body.localizacion;
+
+    //no es necesario validar los conciertos ya que la id es diferente y en un mismo lugar puede haber más un concierto
 
     var sql = 'INSERT INTO conciertos VALUES (DEFAULT, \''+fecha+'\', \''+hora+'\', \''+precio+'\', \''+descripcion+'\', \''+loc+'\');';
 
@@ -175,11 +166,12 @@ app.post('/anadir', function (req, res) {  //añadimos conciertos a la BD, la id
  });
 
 app.get('/goborrar', function (req, res) {  
-    var localidades = {};
+    var localidades = {}; //creamos el json
+
 
     client.query('SELECT localizacion FROM conciertos',function(err,localidad){
         localidades={
-                localidades: localidad.rows
+                localidades: localidad.rows //se rellena con los datos que devuelve la query
         };
         res.render('borrar', localidades);
     });
@@ -193,7 +185,6 @@ app.post('/borrar', function (req, res) {
 
     client.query('delete FROM conciertos where localizacion ='+"'"+loc+"'",function(err,localidad){
             console.log("borrado!");
-            console.log(err);
             res.render('borrar', localidades);
     });
  });
@@ -231,12 +222,12 @@ app.post('/modificar', function (req, res) {
 
 app.get('/golistar', function (req, res) {  
    
-    var artista = {};
+    var artista = {}; //creamos el json
 
     client.query('SELECT nombre FROM grupo',function(err,grupo){
         console.log(grupo.rows);
         artista={
-                artista: grupo.rows
+                artista: grupo.rows //se rellena con los datos que devuelve la query
         };
 
         res.render('listar', artista);
