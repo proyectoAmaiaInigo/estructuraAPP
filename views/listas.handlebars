@@ -4,7 +4,7 @@
     <title>Listas</title>
     <link rel="stylesheet" type="text/css" href="css/css.css">
 </head>
-<body background="/img/images/localidades.jpg" no-repeat center center fixed">
+<body background="/img/images/localidades.jpg" no-repeat center center fixed>
 
 	<!--MENU RESPONSIVE-->
     <nav class="clearfix">
@@ -43,9 +43,16 @@
 
 
     <div class="lista">
+            {{#if artista}} 
             {{#each artista}}
-        	<h2>{{nombre}}</h2>
-        	{{/each}}
+            <h2>{{nombre}}</h2>
+            {{/each}}
+        {{/if}}
+        {{#if localidades}} 
+            {{#each localidades}}
+            <h2>{{localizacion}}</h2>
+            {{/each}}
+        {{/if}}
     </div>
 </body>
 </html>
