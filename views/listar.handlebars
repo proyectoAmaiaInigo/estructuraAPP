@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Listas</title>
+    <title>Administrador</title>
     <link rel="stylesheet" type="text/css" href="css/css.css">
+    <script type="text/javascript" src="js/registro.js"></script>
 </head>
-<body background="/img/images/localidades.jpg" no-repeat center center fixed">
+<body background="/img/images/conciertos.png" no-repeat center center fixed">
 
 	<!--MENU RESPONSIVE-->
     <nav class="clearfix">
@@ -21,10 +22,10 @@
         </div>
 
         <ul class="clearfix" id="botoiak">
-            <li><a href="/inicio">Novedades</a></li>
-            <li><a href="artistas">Artistas</a></li>
-            <li><a href="localidades">Localidades</a></li>
-            <li><a href="#">Perfil</a></li>
+            <li><a href="goanadir">Añadir</a></li>
+            <li><a href="gomodificar">Modificar</a></li>
+            <li><a href="#">Listar</a></li>
+            <li><a href="goborrar">Borrar</a></li>
             <li  id="buscador2">
                 <div>
                  <form method="get" action="/search" id="search">
@@ -40,12 +41,19 @@
         <!--Final buscador-->
     </nav>
     <!--final menu-->
-
-
-    <div class="lista">
+    
+    <div class="textolista">
+        {{#if artista}} 
             {{#each artista}}
-        	<h2>{{nombre}}</h2>
-        	{{/each}}
+            <h2>{{nombre}}</h2>
+            {{/each}}
+        {{/if}}
+        {{#if localidades}} 
+            {{#each localidades}}
+            <h2>{{localizacion}}</h2>
+            {{/each}}
+        {{/if}}
     </div>
+    
 </body>
 </html>

@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script type="text/javascript" src="js/registro.js"></script>
 </head>
-<body>
+<body background="/img/images/conciertos.png" no-repeat center center fixed">
 
     <!--MENU RESPONSIVE-->
     <nav class="clearfix">
@@ -24,6 +24,7 @@
         <ul class="clearfix" id="botoiak">
             <li><a href="goanadir">Añadir</a></li>
             <li><a href="gomodificar">Modificar</a></li>
+            <li><a href="golistar">Listar</a></li>
             <li><a href="goborrar">Borrar</a></li>
             <li  id="buscador2">
                 <div>
@@ -43,18 +44,17 @@
     <div id="formDiv">
         <form id="formAnadir" action="/anadir" method="post">
           <p>
-            <input type="text" id="fecha" name="fecha" required="required" placeholder="Introduce la fecha"/>
+            <input type="text" id="fecha" name="fecha" required="required" placeholder="Introduce la fecha"/><br />
             <br />
-            <input type="text" id="hora" name="hora" required="required" placeholder="Introduce la hora"/>
+            <input type="text" id="hora" name="hora" required="required" placeholder="Introduce la hora"/><br />
             <br />
-            <input type="text" id="precio" name="precio" required="required" placeholder="Introduce el precio"/>
+            <input type="text" id="precio" name="precio" required="required" placeholder="Introduce el precio"/><br />
             <br />
-            <input type="text" id="descripcion" name="descripcion" required="required" placeholder="Introduce la descripcion"/>
+            <input type="text" id="descripcion" name="descripcion" required="required" placeholder="Introduce la descripcion"/><br />
             <br />
-            <input type="text" id="localizacion" name="localizacion" required="required" placeholder="Introduce la localizacion"/>
+            <input type="text" id="localizacion" name="localizacion" required="required" placeholder="Introduce la localizacion"/><br />
             <br />
             <input type="submit" value="Añadir" />
-            <input type="reset" value="Borrar" /> 
           </p>
         </form> 
     </div>  

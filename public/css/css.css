@@ -27,6 +27,31 @@ body {
 
 }
 
+
+.textolista{
+    position: absolute;
+    top: 18%;
+    left: 18%;
+}
+
+.textolista h2{
+    font-size: 16.5pt;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #fff;
+}
+
+.lista{
+    position: absolute;
+    top: 16%;
+    left: 18%;
+}
+
+.lista h2{
+    font-size: 15pt;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #6C6C6C;
+}
+
 #logo{
 
     width: 100px;
@@ -287,4 +312,91 @@ nav li#buscador2{
 #search input[type="text"]:focus {
     width: 250px;
     }
+
+/********************************txto centro*************************/
+
+.inicio{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+
+.inicio h2{
+    color: #6C6C6C;
+    text-align: center;
+    font: bold 28px Arial,Helvetica,Sans-serif;
+}
+
+.inicio p{
+    color: #6C6C6C;
+    text-align: center;
+    font: bold 20px Arial,Helvetica,Sans-serif;
+}
+
+
+/*************************para anadir***********************/
+#formAnadir {
+
+    -webkit-animation: login 1s ease-in-out;
+    -moz-animation: login 1s ease-in-out;
+    -ms-animation: login 1s ease-in-out;
+    -o-animation: login 1s ease-in-out;
+    animation: login 1s ease-in-out;
+    width: 220px;
+    height: 155px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -110px;
+    margin-top: -75px;
+}
+#formAnadir input[type="text"] {
+    opacity: 0.65;
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #ffffff;
+ 
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 2px;
+}
+
+#formAnadir input[type="submit"] {
+  opacity: 0.7;
+    width: 40%;
+    height: 30px;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #00CC99;
+    float: left;
+ 
+
+    border-radius: 100px;
+ 
+    background-color: #00CC99;
+    cursor: pointer;
+}
+
+#formAnadir input[type="submit"]:hover {
+    opacity: 1;
+}
+
+
+/***********radiobuttom************/
+
+#formAnadir input[type="radio"]{
+    color: #fff;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Arial, sans-serif;s
+}
 

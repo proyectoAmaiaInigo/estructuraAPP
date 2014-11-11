@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script type="text/javascript" src="js/registro.js"></script>
 </head>
-<body>
+<body background="/img/images/conciertos.png" no-repeat center center fixed">
 
 	<!--MENU RESPONSIVE-->
     <nav class="clearfix">
@@ -24,6 +24,7 @@
         <ul class="clearfix" id="botoiak">
             <li><a href="goanadir">Añadir</a></li>
             <li><a href="gomodificar">Modificar</a></li>
+            <li><a href="golistar">Listar</a></li>
             <li><a href="goborrar">Borrar</a></li>
             <li  id="buscador2">
                 <div>
@@ -42,7 +43,12 @@
     <!--final menu-->
 
     
-    <form action="/anadir" method="post" id="anadir">
+    <div class="inicio">
+        <h2>Parte Administración</h2></br>
+        <p>En esta sección podrás Añadir, Modificar, Listar y Eliminar conciertos.</p>
+    </div>
+
+    <!--<form action="/anadir" method="post" id="anadir">
         {{#if localidades}} 
             {{#each localidades}}
                 <input type="radio" name="localidad" value="{{localizacion}}">{{localizacion}}<br />
@@ -65,7 +71,7 @@
             {{/each}}
         {{/if}}
         <input type="submit" value="borrar">
-    </form>
+    </form>-->
     
     
 </body>

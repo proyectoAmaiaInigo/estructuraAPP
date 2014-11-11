@@ -244,6 +244,26 @@ app.post('/modificar', function (req, res) {
  });
 
 
+app.get('/golistar', function (req, res) {  
+   
+    var artista = {};
+
+    client.query('SELECT nombre FROM grupo',function(err,grupo){
+        
+        if (isEmptyJSON(grupo.rows)) { //si la consulta no devuelve nada, significa que no hay artistas en la BD
+            res.send("No existen artistas");
+        } else {
+            console.log(grupo.rows);
+            artista={
+                    artista: grupo.rows
+            };
+
+            res.render('listar', artista);         
+        }
+    });         
+ });
+
+
 //Servidor Cloud9/OpenShift/local
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080 || 3000, ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 app.listen(port, ip);
