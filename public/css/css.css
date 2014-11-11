@@ -40,6 +40,19 @@ body {
     color: #6C6C6C;
 }
 
+
+.textoTitu{
+    position: absolute;
+    top: 17.5%;
+    left: 4%;
+}
+
+.textoTitu h1{
+    font-size: 20pt;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #6C6C6C;
+}
+
 .lista{
     position: absolute;
     top: 16%;
@@ -335,7 +348,7 @@ nav li#buscador2{
 
 
 /*************************para anadir***********************/
-#formAnadir {
+.formAnadir {
 
     -webkit-animation: login 1s ease-in-out;
     -moz-animation: login 1s ease-in-out;
@@ -350,7 +363,7 @@ nav li#buscador2{
     margin-left: -110px;
     margin-top: -75px;
 }
-#formAnadir input[type="text"] {
+.formAnadir input[type="text"] {
     opacity: 0.65;
     width: 100%;
     padding: 5px;
@@ -367,7 +380,7 @@ nav li#buscador2{
     border-radius: 2px;
 }
 
-#formAnadir input[type="submit"] {
+.formAnadir input[type="submit"] {
   opacity: 0.7;
     width: 40%;
     height: 30px;
@@ -386,17 +399,17 @@ nav li#buscador2{
     cursor: pointer;
 }
 
-#formAnadir input[type="submit"]:hover {
+.formAnadir input[type="submit"]:hover {
     opacity: 1;
 }
 
 
 /***********radiobuttom************/
 
-#formAnadir input[type="radio"]{
+.loc{
     color: #fff;
     font-size: 19px;
     font-weight: bold;
-    font-family: 'Helvetica Neue', Arial, sans-serif;s
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 

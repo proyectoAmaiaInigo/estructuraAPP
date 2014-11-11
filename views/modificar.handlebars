@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/css.css">
     <script type="text/javascript" src="js/registro.js"></script>
 </head>
-<body background="/img/images/conciertos.png" no-repeat center center fixed">
+<body background="/img/images/conciertos.png" no-repeat center center fixed>
 
 	<!--MENU RESPONSIVE-->
     <nav class="clearfix">
@@ -41,10 +41,10 @@
         <!--Final buscador-->
     </nav>
     <!--final menu-->
-    <form id="formAnadir" action="/modificar" method="post" id="modificar">
+    <form class="formAnadir" action="/modificar" method="post" id="modificar">
         {{#if conciertos}} 
             {{#each conciertos}}
-                <input type="radio" name="localidad" value="{{conciertos}}">{{localizacion}}<br />
+                <input type="radio" name="localidad" value="{{conciertos}}"><label class="loc"> {{localizacion}}</label><br />
             {{/each}}
         {{/if}}
         <input type="submit" value="modificar">
