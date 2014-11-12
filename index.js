@@ -185,7 +185,7 @@ app.post('/borrar', function (req, res) {
 
     client.query('delete FROM conciertos where localizacion ='+"'"+loc+"'",function(err,localidad){
             console.log("borrado!");
-            res.render('borrar', localidades);
+            res.redirect('goborrar');
     });
  });
 /*
